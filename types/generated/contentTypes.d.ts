@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiContactContact extends Struct.SingleTypeSchema {
   collectionName: 'contacts';
   info: {
-    displayName: 'contact';
+    displayName: 'Contacto';
     pluralName: 'contacts';
     singularName: 'contact';
   };
