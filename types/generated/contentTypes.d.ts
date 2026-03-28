@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
   collectionName: 'gallery_items';
   info: {
-    displayName: 'gallery-item';
+    displayName: 'Galer\u00EDa';
     pluralName: 'gallery-items';
     singularName: 'gallery-item';
   };
@@ -470,7 +470,7 @@ export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
 export interface ApiGalleryTagGalleryTag extends Struct.CollectionTypeSchema {
   collectionName: 'gallery_tags';
   info: {
-    displayName: 'gallery-tag';
+    displayName: 'Galer\u00EDa-tag';
     pluralName: 'gallery-tags';
     singularName: 'gallery-tag';
   };
@@ -507,7 +507,7 @@ export interface ApiKitchenStyleKitchenStyle
   extends Struct.CollectionTypeSchema {
   collectionName: 'kitchen_styles';
   info: {
-    displayName: 'kitchen-style';
+    displayName: 'Estilos Cocina';
     pluralName: 'kitchen-styles';
     singularName: 'kitchen-style';
   };

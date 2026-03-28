@@ -4,7 +4,7 @@
   "info": {
     "singularName": "gallery-tag",
     "pluralName": "gallery-tags",
-    "displayName": "gallery-tag"
+    "displayName": "Galería-tag"
   },
   "options": {
     "draftAndPublish": true
