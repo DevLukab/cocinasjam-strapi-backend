@@ -569,6 +569,37 @@ export interface ApiKitchenStyleKitchenStyle
   };
 }
 
+export interface ApiOurProcessOurProcess extends Struct.CollectionTypeSchema {
+  collectionName: 'our_processes';
+  info: {
+    displayName: 'our-process';
+    pluralName: 'our-processes';
+    singularName: 'our-process';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-process.our-process'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    step: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1084,6 +1115,7 @@ declare module '@strapi/strapi' {
       'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
       'api::gallery-tag.gallery-tag': ApiGalleryTagGalleryTag;
       'api::kitchen-style.kitchen-style': ApiKitchenStyleKitchenStyle;
+      'api::our-process.our-process': ApiOurProcessOurProcess;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
