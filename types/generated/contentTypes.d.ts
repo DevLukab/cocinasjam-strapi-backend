@@ -430,6 +430,82 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiConsultationRequestConsultationRequest
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'consultation_requests';
+  info: {
+    displayName: 'Formulario';
+    pluralName: 'consultation-requests';
+    singularName: 'consultation-request';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apporx_measures: Schema.Attribute.Text;
+    budget: Schema.Attribute.Enumeration<
+      [
+        'Menos de 5.000 EUR',
+        'Entre 5.000 y 10.000 EUR',
+        'Entre 10.000 y 20.000 EUR',
+        'M\u00E1s de 20.000 EUR',
+      ]
+    >;
+    client_type: Schema.Attribute.Enumeration<
+      ['Particular', 'Empresa / Estudio / Interiorista']
+    >;
+    comments: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    current_state: Schema.Attribute.Enumeration<
+      [
+        'Ya tengo la cocina comprada',
+        'Estoy comparando opciones',
+        'A\u00FAn no tengo nada',
+        'En obra / reforma en curso',
+      ]
+    >;
+    estimated_date: Schema.Attribute.Enumeration<
+      [
+        'Urgente (0-2 semanas)',
+        'En 1 mes',
+        'En 2-3 meses',
+        'Solo estoy mirando',
+      ]
+    >;
+    full_name: Schema.Attribute.String;
+    house_plans: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    housing_type: Schema.Attribute.Enumeration<
+      ['Piso', 'Casa', 'Obra nueva', 'Reforma']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::consultation-request.consultation-request'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    mail: Schema.Attribute.Email;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    service_type: Schema.Attribute.Enumeration<
+      [
+        'Solo instalaci\u00F3n',
+        'Dise\u00F1o + instalaci\u00F3n',
+        'Reforma completa',
+        'No lo tengo claro (asesoramiento)',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Struct.SingleTypeSchema {
   collectionName: 'contacts';
   info: {
@@ -572,7 +648,7 @@ export interface ApiKitchenStyleKitchenStyle
 export interface ApiOurProcessOurProcess extends Struct.CollectionTypeSchema {
   collectionName: 'our_processes';
   info: {
-    displayName: 'our-process';
+    displayName: 'Nuestro Proceso';
     pluralName: 'our-processes';
     singularName: 'our-process';
   };
@@ -592,7 +668,7 @@ export interface ApiOurProcessOurProcess extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    step: Schema.Attribute.Integer;
+    step: Schema.Attribute.Integer & Schema.Attribute.Unique;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1111,6 +1187,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::consultation-request.consultation-request': ApiConsultationRequestConsultationRequest;
       'api::contact.contact': ApiContactContact;
       'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
       'api::gallery-tag.gallery-tag': ApiGalleryTagGalleryTag;

@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultation_requests",
+  "info": {
+    "singularName": "consultation-request",
+    "pluralName": "consultation-requests",
+    "displayName": "Formulario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "full_name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "apporx_measures": {
+      "type": "text"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "house_plans": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mail": {
+      "type": "email"
+    },
+    "client_type": {
+      "type": "enumeration",
+      "enum": [
+        "Particular",
+        "Empresa / Estudio / Interiorista"
+      ]
+    },
+    "service_type": {
+      "type": "enumeration",
+      "enum": [
+        "Solo instalación",
+        "Diseño + instalación",
+        "Reforma completa",
+        "No lo tengo claro (asesoramiento)"
+      ]
+    },
+    "current_state": {
+      "type": "enumeration",
+      "enum": [
+        "Ya tengo la cocina comprada",
+        "Estoy comparando opciones",
+        "Aún no tengo nada",
+        "En obra / reforma en curso"
+      ]
+    },
+    "budget": {
+      "type": "enumeration",
+      "enum": [
+        "Menos de 5.000 EUR",
+        "Entre 5.000 y 10.000 EUR",
+        "Entre 10.000 y 20.000 EUR",
+        "Más de 20.000 EUR"
+      ]
+    },
+    "estimated_date": {
+      "type": "enumeration",
+      "enum": [
+        "Urgente (0-2 semanas)",
+        "En 1 mes",
+        "En 2-3 meses",
+        "Solo estoy mirando"
+      ]
+    },
+    "housing_type": {
+      "type": "enumeration",
+      "enum": [
+        "Piso",
+        "Casa",
+        "Obra nueva",
+        "Reforma"
+      ]
+    }
+  }
+}

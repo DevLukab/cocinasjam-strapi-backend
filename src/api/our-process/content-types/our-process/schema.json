@@ -4,7 +4,7 @@
   "info": {
     "singularName": "our-process",
     "pluralName": "our-processes",
-    "displayName": "our-process"
+    "displayName": "Nuestro Proceso"
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "step": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     },
     "title": {
       "type": "string"
